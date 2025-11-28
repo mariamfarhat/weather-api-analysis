@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: stg_daily_weather_data
+    description: "Staging model that cleans and renames raw weather data from the API."
+    columns:
+      - name: weather_date
+        description: "The date extracted from the raw dt_txt timestamp."
+        tests:
+          - not_null
+      - name: weather_hour
+        description: "The hour (HH:mm) extracted from dt_txt."
+        tests:
+          - not_null
+      - name: city_name
+        description: "Name of the city for this weather record."
+        tests:
+          - not_null
+      - name: weather_main
+        description: "Main weather condition (Rain, Cloud, Clear, etc.)."
+        tests:
+          - not_null
+      - name: main_temp
+        description: "Rounded temperature reading for the date of this weather record."
+        tests:
+          - not_null 
+      - name: min_temp
+        description: "Minimum temperature for the date of this weather record."
+        tests:
+          - not_null
+      - name: max_temp
+        description: "Maximum temperature for the date of this weather record."
+        tests:
+          - not_null
+      - name: main_pressure
+        description: "Atmospheric pressure reading by default, hPa."
+        tests:
+          - not_null
+      - name: main_humidity
+        description: "Humidity percentage."
+        data_tests:
+          - not_null
+      - name: wind_speed_kmh
+        description: "Wind speed converted to km/h."
+        tests:
+          - not_null
+      - name: day_night_indicator
+        description: "Indicator for day ('d') or night ('n') period."
+        tests:
+          - not_null
+      - name: rain_for_last_three_hours
+        description: "Rain volume for the last 3 hours. Defaults to 0 if missing."
+        tests:
+          - not_null
+

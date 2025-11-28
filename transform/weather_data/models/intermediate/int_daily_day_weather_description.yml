@@ -1,0 +1,45 @@
+version: 2
+models:
+  - name: int_daily_day_weather_description
+    description: "Intermediate model that summarizes daily weather descriptions from the staging weather data."
+    columns:
+      - name: weather_date
+        description: "The date for which the daily weather description is summarized."
+        tests:
+          - not_null
+      - name: city_name
+        description: "Name of the city for this daily weather record."
+        tests:
+          - not_null
+      - name: day_avg_temp
+        description: "Average temperature at day (°C), rounded to the nearest whole number."
+        tests:
+          - not_null
+      - name: day_min_temp
+        description: "Minimum temperature recorded at day (°C)."
+        tests:
+          - not_null
+      - name: day_max_temp
+        description: "Maximum temperature recorded at day (°C)."
+        tests:
+          - not_null
+      - name: day_avg_pressure
+        description: "Average atmospheric pressure measured at day (hPa)."
+        tests:
+          - not_null
+      - name: day_avg_humidity
+        description: "Average humidity percentage during the day."
+        tests:
+          - not_null
+      - name: day_avg_wind_speed_kmh
+        description: "Average wind speed in km/h during the day."
+        tests:
+          - not_null
+      - name: day_total_rain_mm
+        description: "Total rainfall (mm) recorded during the day."
+        tests:
+          - not_null
+      - name: weather_main_day_summary
+        description: "Most frequent main weather condition during the day (e.g., Rain, Clear, Cloud)."
+        tests:
+          - not_null

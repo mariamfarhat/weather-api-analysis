@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: weather_data_api
+    schema: dbo
+    tables:
+      - name: raw_data
+        description: "Raw weather data loaded from the weather API."
+  

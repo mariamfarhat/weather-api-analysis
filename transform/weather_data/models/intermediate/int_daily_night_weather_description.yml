@@ -1,0 +1,45 @@
+version: 2
+models:
+  - name: int_daily_night_weather_description
+    description: "Intermediate model that summarizes nightly weather descriptions from the staging weather data."
+    columns:
+      - name: weather_date
+        description: "The date for which the nightly weather description is summarized."
+        tests:
+          - not_null
+      - name: city_name
+        description: "Name of the city for this nightly weather record."
+        tests:
+          - not_null
+      - name: night_avg_temp
+        description: "Average temperature at night (°C), rounded to the nearest whole number."
+        tests:
+          - not_null
+      - name: night_min_temp
+        description: "Minimum temperature recorded at night (°C)."
+        tests:
+          - not_null
+      - name: night_max_temp
+        description: "Maximum temperature recorded at night (°C)."
+        tests:
+          - not_null
+      - name: night_avg_pressure
+        description: "Average atmospheric pressure measured at night (hPa)."
+        tests:
+          - not_null
+      - name: night_avg_humidity
+        description: "Average humidity percentage during the night."
+        tests:
+          - not_null
+      - name: night_avg_wind_speed_kmh
+        description: "Average wind speed in km/h during the night."
+        tests:
+          - not_null
+      - name: night_total_rain_mm
+        description: "Total rainfall (mm) recorded during the night."
+        tests:
+          - not_null
+      - name: weather_main_night_summary
+        description: "Most frequent main weather condition during the night (e.g., Rain, Clear, Cloud)."
+        tests:
+          - not_null
