@@ -1,4 +1,4 @@
-{{ config(materialized = 'table') }}
+{{ config(materialized = 'view') }}
 
 with weather as (
     select * from {{ ref('stg_daily_weather_city') }}
