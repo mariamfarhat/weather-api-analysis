@@ -38,43 +38,67 @@ A Python script sends requests to the weather API and returns normalized JSON �
 
 ## 🔧 Installation and Setup:
 **1. Clone the repo**
-git clone https://github.com/mariamfarhat/weather-api-analysis
-cd weather-api-analysis
+
+`git clone https://github.com/mariamfarhat/weather-api-analysis`
+
+`cd weather-api-analysis`
 
 **2. Create a virtual environment**
-python -m venv .venv
-source .venv/bin/activate
+
+`python -m venv .venv`
+
+`source .venv/bin/activate`
 
 **3. Install dependencies**
-pip install -r requirements.txt
+
+`pip install -r requirements.txt`
 
 **4. Create your .env file**
+
 Inside the extract_load folder inside the src folder.
 
 OPENWEATHER_API_KEY=your_api_key
+
 UNITS=metric
+
 DB_SERVER=ip_address,port
+
 DB_DATABASE=your_db_name
+
 DB_USERNAME=your_db_username
+
 DB_PASSWORD=your_db_password
+
 DB_DRIVER=ODBC Driver 17 for SQL Server
 
+
 **5. Configure dbt**
+
 In profiles.yml, add SQL Server target settings.
 
 **6. Start Airflow**
-airflow standalone
+
+`airflow standalone`
 
 ## **🚀 How to Run the Pipeline**
 1- Open the Airflow UI at: http://localhost:8080
+
 2- Locate the DAG: weather_pipeline
+
 3- Switch it ON
+
 4- Trigger a manual run
+
 5- Airflow will:
+
     - Fetch data from API
+    
     - Save CSV
+    
     - Insert into MSSQL
+    
     - Run dbt transformations
+    
     - Log everything in the UI
 
 ## **📊 dbt Models**
