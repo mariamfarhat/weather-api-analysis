@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: primary_weather_forecast
+    description: >
+      Mart model that aggregates daily and nightly weather information into a single summary per city and date. 
+      Includes daily temperature averages, nightly temperatures,combined wind speed, and total rainfall.
+
+    columns:
+      - name: weather_date
+        description: "The date for which the weather summary is aggregated."
+        tests:
+          - not_null
+
+      - name: city_name
+        description: "City name associated with the weather summary."
+        tests:
+          - not_null
+
+      - name: day_avg_temp
+        description: "Average temperature during the day."
+
+      - name: night_avg_temp
+        description: "Average temperature during the night."
+
+      - name: overall_avg_wind_speed_kmh
+        description: "Average wind speed combining day and night, rounded to 0 decimals."
+
+      - name: total_rain_mm
+        description: "Total rainfall combining day and night (mm)."
+        tests:
+          - not_null
+
